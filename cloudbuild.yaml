@@ -2,23 +2,21 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml --substitutions _BUCKET='<bucket name>'
 
 steps:
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+- name: 'gcr.io/agmsb-k8s-ops/terraform'
   args: ['init',
-    '-backend-config=project=${PROJECT_ID}',
-    '-backend-config=bucket=${_BUCKET}']
+    '-backend-config=project=agmsb-k8s-ops',
+    '-backend-config=bucket=agmsb-terraform-state']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+    - "TF_VAR_project-name=agmsb-k8s"
+- name: 'gcr.io/agmsb-k8s-ops/terraform'
   args: ['plan']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+    - "TF_VAR_project-name=agmsb-k8s"
+- name: 'gcr.io/agmsb-k8s-ops/terraform'
   args: ['apply', '-auto-approve']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+    - "TF_VAR_project-name=agmsb-k8s"
+- name: 'gcr.io/agmsb-k8s-ops/terraform'
   args: ['destroy', '-auto-approve']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-substitutions:
-    _BUCKET: # Provide your own bucket name
+    - "TF_VAR_project-name=agmsb-k8s"
