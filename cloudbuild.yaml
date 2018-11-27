@@ -1,5 +1,4 @@
-# In this directory, run the following command to build this builder.
-# $ gcloud builds submit . --config=cloudbuild.yaml --substitutions _BUCKET='<bucket name>'
+# Terraform init, plan
 
 steps:
 - name: 'gcr.io/agmsb-k8s-ops/terraform'
@@ -12,11 +11,12 @@ steps:
   args: ['plan']
   env:
     - "TF_VAR_project-name=agmsb-k8s"
-- name: 'gcr.io/agmsb-k8s-ops/terraform'
-  args: ['apply', '-auto-approve']
-  env:
-    - "TF_VAR_project-name=agmsb-k8s"
-#- name: 'gcr.io/agmsb-k8s-ops/terraform'
-# args: ['destroy', '-auto-approve']
+
+# - name: 'gcr.io/agmsb-k8s-ops/terraform'
+#  args: ['apply', '-auto-approve']
+#  env:
+#    - "TF_VAR_project-name=agmsb-k8s"
+# - name: 'gcr.io/agmsb-k8s-ops/terraform'
+#  args: ['destroy', '-auto-approve']
 #  env:
 #    - "TF_VAR_project-name=agmsb-k8s"

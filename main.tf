@@ -3,9 +3,8 @@ provider "google" {
   region      = "${var.region}"
 }
 
-// Create GKE cluster
-resource "google_container_cluster" "terraform-builder-gcs-backend" {
-  name               = "terraform-builder-gcs-backend"
+resource "google_container_cluster" "gke_terraform" {
+  name               = "gke_terraform"
   zone               = "${var.region}"
   initial_node_count = "3"
 
@@ -19,9 +18,9 @@ resource "google_container_cluster" "terraform-builder-gcs-backend" {
     ]
 
     labels {
-      reason = "terraform-builder-example"
+      from = "terraform"
     }
 
-    tags = ["example"]
+    tags = ["terraform"]
   }
 }
