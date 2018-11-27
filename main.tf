@@ -3,8 +3,8 @@ provider "google" {
   region      = "${var.region}"
 }
 
-resource "google_container_cluster" "gke_terraform" {
-  name               = "gke_terraform"
+resource "google_container_cluster" "gke-terraform" {
+  name               = "gke-terraform"
   zone               = "${var.region}"
   initial_node_count = "3"
 
