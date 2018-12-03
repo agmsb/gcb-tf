@@ -1,4 +1,4 @@
-# Terraform init, plan, apply 
+# prod terraform init, plan, apply 
 
 steps:
 - name: 'gcr.io/agmsb-k8s-ops/terraform'
