@@ -1,9 +1,9 @@
 variable "project-name" {
   type    = "string"
-  default = "agmsb-k8s"
+  default = "agmsb-tech-ops"
 }
 
 variable "region" {
   type    = "string"
-  default = "us-east1-d"
+  default = "us-central1-a"
 }
