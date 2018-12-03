@@ -4,7 +4,7 @@ steps:
 - name: 'gcr.io/agmsb-k8s-ops/terraform'
   args: ['init',
     '-backend-config=project=agmsb-k8s-ops',
-    '-backend-config=bucket=agmsb-k8s-ops-tfstate']
+    '-backend-config=bucket=agmsb-terraform-state']
   env:
     - "TF_VAR_project-name=agmsb-k8s-ops"
 
